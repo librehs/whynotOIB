@@ -6,4 +6,4 @@
 
 That's it.
 
-Still in development.
+Still in development (but maybe usable).
