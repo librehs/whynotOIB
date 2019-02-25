@@ -38,12 +38,22 @@ var page = `
 </div>
 `
 
+let haveDone = false;
+
 if ( window.WeixinJSBridge || navigator.userAgent.search('(M|m)icro(M|m)essenger') !== -1) {
+    showOIB();
+}
+
+document.addEventListener('WeixinJSBridgeReady', () => { showOIB(); })
+
+function showOIB() {
+    if (haveDone) return;
     let elem = document.createElement("div");
     elem.innerHTML = page;
     document.body.appendChild(elem);
     setTimeout( () => {document.getElementById('whynotOIB').className = "oibDisplay";}, 1000 );
     setTimeout( () => {hideOIB(false);}, 8000 );
+    haveDone = true;
 }
 
 function hideOIB(sudden=true) {
