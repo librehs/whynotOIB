@@ -38,7 +38,7 @@ var page = `
 </div>
 `
 
-if ( window.WeixinJSBridge || navigator.userAgent.search('MicroMessenger') !== -1) {
+if ( window.WeixinJSBridge || navigator.userAgent.search('(M|m)icro(M|m)essenger') !== -1) {
     let elem = document.createElement("div");
     elem.innerHTML = page;
     document.body.appendChild(elem);
