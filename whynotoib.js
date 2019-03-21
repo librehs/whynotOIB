@@ -1,5 +1,6 @@
 "use strict";
 
+(function(){
 var page = `
 <style>
 #whynotOIB {
@@ -62,3 +63,4 @@ function hideOIB(sudden=true) {
     }
     document.getElementById('whynotOIB').className = "";
 }
+})()
