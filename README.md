@@ -1,7 +1,7 @@
 # Why Not OIB?
 
 ``` html
-<script src="https://cdn.jsdelivr.net/gh/librehs/whynotoib@master/whynotoib.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/librehs/whynotoib@master/dist/whynotoib.min.js"></script>
 ```
 
 That's it.
