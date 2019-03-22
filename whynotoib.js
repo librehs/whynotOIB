@@ -57,23 +57,23 @@
 
     // Execution
 
-    if (1 || searchObject() || searchUa()) {
+    if (searchObject() || searchUa()) {
         showOIB();
     } else {
-        for (i of eventList) document.addEventListener(i, () => { showOIB(); })
+        for (let i of eventList) document.addEventListener(i, () => { showOIB(); })
     }
 
     // Functions
 
     function searchObject() {
-        for (i of objectList) {
+        for (let i of objectList) {
             if (window[i]) return true;
         }
         return false;
     }
 
     function searchUa() {
-        for (i of uaList) {
+        for (let i of uaList) {
             if (ua.search(i) !== -1) return true;
         }
         return false;
