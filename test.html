@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tests | WhyNotOIB</title>
+</head>
+
+<body>
+    <div class="ui container">
+        <h1 class="ui header">这是一个测试页面。</h1>
+        <div id="results">
+            未检测到相关浏览器。
+        </div>
+    </div>
+    <script src="whynotoib.js"></script>
+    <script>
+        let ua = navigator.userAgent;
+        let uaList = [
+            /(M|m)icro(M|m)essenger/,
+            /TIM\//,
+            /QQ\//
+        ];
+        let objectList = [
+            "WeixinJSBridge"
+        ]
+        let eventList = [
+            "WeixinJSBridgeReady"
+        ]
+
+        // Execution
+
+        if (searchObject() || searchUa()) {
+            showOIB();
+        } else {
+            for (let i of eventList) document.addEventListener(i, () => { showOIB(); })
+        }
+
+        // Functions
+
+        function searchObject() {
+            for (let i of objectList) {
+                if (window[i]) return true;
+            }
+            return false;
+        }
+
+        function searchUa() {
+            for (let i of uaList) {
+                if (ua.search(i) !== -1) return true;
+            }
+            return false;
+        }
+
+        function showOIB() {
+            document.getElementById('results').innerHTML = `已检测到相关浏览器。<br>由于 CORS，在本地测试时可能不会看到浮动窗口。`;
+        }
+    </script>
+</body>
+
+</html>
